@@ -6,12 +6,12 @@ public class KarakterHareket: MonoBehaviour
 {   //Burda karaktere verdiðimiz özelliklere referans veriyoruz ki kod üstünde rahat kullanalým
     Rigidbody2D rgb;
     Vector3 velocity;
-    
+    public Animator animator;
+
 
     //verdiðimiz hareketlerin deðerlerini ayarlýyoruz
-    [SerializeField]
+   
     private float speedAmount = 5f;
-    [SerializeField]
     private float jumpAmount = 4.9f;
 
 
@@ -27,7 +27,10 @@ public class KarakterHareket: MonoBehaviour
         //yürüme ayarlarý
         velocity = new Vector3(Input.GetAxis("Horizontal"), 0f);
         transform.position += velocity * speedAmount * Time.deltaTime;
+        animator.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal")));
         
+        
+       
         //zýplama ayarý
         if (Input.GetButtonDown("Jump") && Mathf.Approximately(rgb.velocity.y, 0))
 
