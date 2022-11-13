@@ -9,8 +9,10 @@ public class KarakterHareket: MonoBehaviour
     
 
     //verdiðimiz hareketlerin deðerlerini ayarlýyoruz
-    float speedAmount = 5f;
-    float jumpAmount = 3f;
+    [SerializeField]
+    private float speedAmount = 5f;
+    [SerializeField]
+    private float jumpAmount = 4.9f;
 
 
     void Start()
