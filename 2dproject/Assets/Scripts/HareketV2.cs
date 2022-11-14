@@ -24,12 +24,15 @@ public class HareketV2 : MonoBehaviour
     private Vector2 velocity;
     [Range(0, 1)] public float groundFrictionLevel;
     private Rigidbody2D rb;
+    private Animator anim;
 
     void Start()
     {
 
         //hareket
         rb = GetComponent<Rigidbody2D>();
+        //animasyon
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -56,7 +59,8 @@ public class HareketV2 : MonoBehaviour
             Flip();
         }
 
-
+        //animasyon paremetresi
+        anim.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
 
 
     }
